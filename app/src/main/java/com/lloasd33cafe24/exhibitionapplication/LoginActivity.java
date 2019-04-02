@@ -38,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 final String adminID = idText.getText().toString();
                 final String adminPassword = passwordText.getText().toString();
 
@@ -45,13 +47,18 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                        try{
+
+
                            JSONObject jsonResponse = new JSONObject(response);
                            boolean success = jsonResponse.getBoolean("success");
                            if(success){
                                String adminID = jsonResponse.getString("adminID");
+                               String adminEmail = jsonResponse.getString("adminEmail");
                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                intent.putExtra("adminID", adminID);
+                               intent.putExtra("adminEmail", adminEmail);
                                LoginActivity.this.startActivity(intent);
+
                            }
                            else{
                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);

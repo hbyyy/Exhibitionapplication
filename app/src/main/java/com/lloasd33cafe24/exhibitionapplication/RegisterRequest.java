@@ -16,6 +16,7 @@ public class RegisterRequest extends StringRequest {
         parameters = new HashMap<>();
         parameters.put("adminID", adminID);
         parameters.put("adminPassword", adminPassword);
+        parameters.put("adminEmail", adminEmail);
     }
 
     @Override

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateprojectActivity">
+    tools:context=".CreateExhibitionActivity">
 
     <TextView
         android:id="@+id/textView5"
@@ -27,86 +27,123 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
         android:text="전시명"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="148dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
         android:text="전시장 지도"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="254dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="8dp"
         android:text="전시장 구역 리스트"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="457dp" />
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="182dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="307dp"
         android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="전시명을 입력해주세요"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="182dp" />
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="70dp"
         android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="8dp"
         android:text="추가"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="348dp" />
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="116dp"
         android:layout_height="105dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:clickable="true"
-        app:srcCompat="@android:drawable/ic_delete"
-        tools:layout_editor_absoluteX="287dp"
-        tools:layout_editor_absoluteY="270dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@android:drawable/ic_delete" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="321dp"
-        tools:layout_editor_absoluteY="382dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="44dp"
         android:text="다음"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="637dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="45dp"
         android:layout_height="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="8dp"
         android:text="+"
-        tools:layout_editor_absoluteX="335dp"
-        tools:layout_editor_absoluteY="581dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 </android.support.constraint.ConstraintLayout>

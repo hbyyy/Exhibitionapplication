@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Createproject2Activity"></activity>
-        <activity android:name=".CreateprojectActivity" />
+        <activity android:name=".CreateExhibition2Activity"></activity>
+        <activity android:name=".CreateExhibitionActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

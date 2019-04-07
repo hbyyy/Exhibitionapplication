@@ -3,7 +3,7 @@ package com.lloasd33cafe24.exhibitionapplication;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CreateprojectActivity extends AppCompatActivity {
+public class CreateExhibitionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -40,6 +40,7 @@ public class CreateExhibitionActivity extends AppCompatActivity {
 
                             if(success){
                                 Intent intent = new Intent(CreateExhibitionActivity.this, CreateExhibition2Activity.class);
+                                intent.putExtra("adminID", adminID);
                                 CreateExhibitionActivity.this.startActivity(intent);
                             }
                             else{

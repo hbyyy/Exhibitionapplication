@@ -16,16 +16,18 @@ public class CreateExhibition2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createexhibition2);
 
-
         Button createExhibition = (Button)findViewById(R.id.createExhibition);
         TableLayout tableLayout = (TableLayout)findViewById(R.id.emailListTable);
-
+        Intent intent = getIntent();
+        final String adminID = intent.getStringExtra("adminID");
 
 
         createExhibition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(CreateExhibition2Activity.this, MainActivity.class);
+                intent.putExtra("adminID", adminID);
                 CreateExhibition2Activity.this.startActivity(intent);
             }
         });

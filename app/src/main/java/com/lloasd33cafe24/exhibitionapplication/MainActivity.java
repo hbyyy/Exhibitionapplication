@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         final Button createExbutton = (Button)findViewById(R.id.createExbutton);
 
         Intent intent = getIntent();
-        String adminID = intent.getStringExtra("adminID");
+        final String adminID = intent.getStringExtra("adminID");
         String message = adminID + "님 환영합니다";
         welcomeText.setText(message);
 
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent createExhibitionintent = new Intent(MainActivity.this, CreateExhibitionActivity.class);
+                createExhibitionintent.putExtra("adminID", adminID);
                 MainActivity.this.startActivity(createExhibitionintent);
             }
         });

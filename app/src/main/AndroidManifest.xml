@@ -11,7 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QRcodeGeneratorActivity"></activity>
+        <activity android:name=".ManagementWorkActiyity"></activity>
+        <activity android:name=".CreateWorkActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity android:name=".addsector_dialog" />
+        <activity
+            android:name=".Showexlist"
+            android:screenOrientation="portrait"
+            android:theme="@style/popupTheme" />
+        <activity android:name=".QRcodeGeneratorActivity" />
         <activity android:name=".CreateExhibition2Activity" />
         <activity android:name=".CreateExhibitionActivity" />
         <activity android:name=".LoginActivity">

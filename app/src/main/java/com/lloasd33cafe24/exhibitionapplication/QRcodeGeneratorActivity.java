@@ -1,5 +1,6 @@
 package com.lloasd33cafe24.exhibitionapplication;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,16 +18,22 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 public class QRcodeGeneratorActivity extends AppCompatActivity {
     EditText text;
     Button gen_btn;
+    Button createWorkFinishButton;
     ImageView image;
     String text2Qr;
+    private String adminID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode_generator);
-        text = findViewById(R.id.urlInput);
-        gen_btn = findViewById(R.id.gen_btn);
+    /*    text = findViewById(R.id.urlInput);
+        gen_btn = findViewById(R.id.gen_btn);*/
         image = findViewById(R.id.codeImage);
+        createWorkFinishButton = (Button)findViewById(R.id.createWorkFinishButton);
 
+        Intent intent = getIntent();
+        adminID = intent.getStringExtra("adminID");
+/*
         gen_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +50,17 @@ public class QRcodeGeneratorActivity extends AppCompatActivity {
                 }
             }
         });
+        */
+
+    createWorkFinishButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(QRcodeGeneratorActivity.this, MainActivity.class);
+            intent.putExtra("adminID", adminID);
+            QRcodeGeneratorActivity.this.startActivity(intent);
+        }
+    });
+
     }
 }
 

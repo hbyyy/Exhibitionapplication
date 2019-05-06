@@ -30,11 +30,12 @@
         android:text="작가 메일 리스트"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/sectorName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.11" />
 
     <TextView
         android:id="@+id/textView10"
@@ -54,83 +55,48 @@
         app:layout_constraintVertical_bias="0.079" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/sectorName"
         android:layout_width="273dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="84dp"
         android:ems="10"
         android:hint="메일 주소 입력"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.296" />
+        app:layout_constraintBottom_toTopOf="@+id/createExhibition"
+        app:layout_constraintEnd_toStartOf="@+id/addEmail"
+        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/addEmail"
         android:layout_width="35dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="8dp"
-        android:text="+"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="84dp"
+        android:gravity="center"
 
-    <ScrollView
-        android:layout_width="396dp"
-        android:layout_height="269dp"
+        android:text="추가"
+        app:layout_constraintBottom_toTopOf="@+id/createExhibition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showEmailList"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ListView
+        android:id="@+id/showEmailList"
+        android:layout_width="395dp"
+        android:layout_height="287dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/sectorName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2">
-
-        <LinearLayout
-            android:id="@+id/emailListLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TableLayout
-                android:stretchColumns="1"
-                android:id="@+id/emailListTable"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="7dp"
-                tools:layout_editor_absoluteY="297dp">
-
-                <TableRow
-                    android:background="@drawable/border"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    >
-
-                    <TextView
-                        android:background="@drawable/border"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="   번호   " />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="이메일 리스트" />
-                </TableRow>
-            </TableLayout>
-
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

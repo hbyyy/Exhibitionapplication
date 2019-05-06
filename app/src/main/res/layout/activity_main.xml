@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
     <Button
-        android:id="@+id/updateExbutton"
+        android:id="@+id/manageExbutton"
         android:layout_width="289dp"
         android:layout_height="49dp"
         android:layout_marginStart="61dp"
@@ -70,21 +70,22 @@
         android:text="선택한 프로젝트 삭제"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateExbutton" />
+        app:layout_constraintTop_toBottomOf="@+id/manageExbutton" />
 
-    <Spinner
-        android:id="@+id/selectExspinner"
-        android:layout_width="232dp"
-        android:layout_height="52dp"
+    <TextView
+        android:id="@+id/selectEx"
+        android:layout_width="257dp"
+        android:layout_height="46dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:hint="전시를 선택하세요"
         app:layout_constraintBottom_toTopOf="@+id/createExbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.246" />
+        app:layout_constraintVertical_bias="0.374" />
 
 </android.support.constraint.ConstraintLayout>

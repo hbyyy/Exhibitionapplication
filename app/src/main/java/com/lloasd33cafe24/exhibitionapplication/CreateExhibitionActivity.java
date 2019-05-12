@@ -16,6 +16,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -72,7 +73,7 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
                             }
                         }
 
-                        catch (Exception e){
+                        catch (JSONException e){
                             e.printStackTrace();
                         }
                     }

@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ManagementWorkActiyity.class);
                 intent.putExtra("adminID", adminID);
+                intent.putExtra("name", selectex);
                 MainActivity.this.startActivity(intent);
 
             }

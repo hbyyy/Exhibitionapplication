@@ -9,6 +9,8 @@ import android.widget.Button;
 public class ManagementWorkActiyity extends AppCompatActivity {
 
     private String adminID;
+    private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +18,7 @@ public class ManagementWorkActiyity extends AppCompatActivity {
 
         Intent intent = getIntent();
         adminID = intent.getStringExtra("adminID");
+        name = intent.getStringExtra("name");
         Button createWorkButton = (Button)findViewById(R.id.createWorkButton);
 
 
@@ -24,6 +27,7 @@ public class ManagementWorkActiyity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ManagementWorkActiyity.this, CreateWorkActivity.class);
                 intent.putExtra("adminID",adminID);
+                intent.putExtra("name", name);
                 ManagementWorkActiyity.this.startActivity(intent);
             }
         });

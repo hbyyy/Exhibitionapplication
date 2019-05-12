@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -28,7 +27,7 @@ public class Showexlist extends AppCompatActivity {
 
     private String TAG_JSON = "showlist";
     private String postdata;
-    private ArrayList<String> mArrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +36,7 @@ public class Showexlist extends AppCompatActivity {
         final String adminID;
         final Button button = (Button) findViewById(R.id.selectbutton);
         ListView listview = (ListView) findViewById(R.id.exlist);
-        mArrayList = new ArrayList<String>();
+        ArrayList<String> mArrayList = new ArrayList<String>();
 
         Intent intent = getIntent();
         adminID = intent.getStringExtra("adminID");
@@ -56,7 +55,6 @@ public class Showexlist extends AppCompatActivity {
                 mArrayList.add(jsonArray.getJSONObject(i).getString("name"));
             }
 
-
         }catch (JSONException e){ e.printStackTrace();}
 
 
@@ -66,16 +64,6 @@ public class Showexlist extends AppCompatActivity {
             listview.setAdapter(adapter);
 
 
-            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-
-                    intent.putExtra("name", mArrayList.get(position));
-                    intent.putExtra("adminID", adminID);
-                    startActivity(intent);
-                }
-            });
 
             button.setOnClickListener(new View.OnClickListener() {
                 @Override

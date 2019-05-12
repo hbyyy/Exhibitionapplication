@@ -60,32 +60,6 @@ public class CreateExhibition2Activity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 editEmail.setText(null);
 
-            }
-        });
-
-
-        createExhibition.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                JSONArray jsonArray = new JSONArray();
-                for(int i = 0; i<mArrayList.size(); i++)
-                {
-                    try {
-                        JSONObject jsonObject = new JSONObject();
-                        jsonObject.put("name", adminID);
-                        jsonObject.put("AuthorEmail", mArrayList.get(i));
-                        jsonArray.put(jsonObject);
-
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                String sendData = jsonArray.toString();
-
-
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -100,15 +74,25 @@ public class CreateExhibition2Activity extends AppCompatActivity {
 
                             }
                         } catch (JSONException e) {
+
                             e.printStackTrace();
                         }
                     }
                 };
 
-                AuthorEmailRequest authorEmailRequest = new AuthorEmailRequest(adminID, sendData, responseListener);
+                AuthorEmailRequest authorEmailRequest = new AuthorEmailRequest(adminID, email, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(CreateExhibition2Activity.this);
                 queue.add(authorEmailRequest);
 
+            }
+        });
+
+
+        createExhibition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                
                 Intent intent = new Intent(CreateExhibition2Activity.this, MainActivity.class);
                 intent.putExtra("adminID", adminID);
                 CreateExhibition2Activity.this.startActivity(intent);

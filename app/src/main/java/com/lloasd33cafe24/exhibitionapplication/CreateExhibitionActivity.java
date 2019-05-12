@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,8 +24,8 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
 
     private int nDatcnt = 0;
     private ArrayList<SectorListItem> sectorListData = new ArrayList<SectorListItem>();
-    private SectorListVIewAdapter adapter;
-    private ListView sectorlist;
+    private SectorRecyclerAdapter adapter;
+    private RecyclerView sectorlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,11 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
         final Button createExhibitionNext = (Button)findViewById(R.id.createExhibitionNext);
         final TextView addsector = (TextView) findViewById(R.id.addsector);
         final EditText exhibitionText = (EditText)findViewById(R.id.exhibitionText);
-        sectorlist = (ListView)findViewById(R.id.sectorlist);
 
-        adapter = new SectorListVIewAdapter(sectorListData);
+        adapter = new SectorRecyclerAdapter(this, sectorListData);
+        sectorlist = (RecyclerView)findViewById(R.id.secterListRecyclerView);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        sectorlist.setLayoutManager(mLayoutManager);
         sectorlist.setAdapter(adapter);
 
         Intent intent = getIntent();

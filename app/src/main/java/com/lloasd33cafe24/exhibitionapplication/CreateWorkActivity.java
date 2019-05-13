@@ -40,27 +40,29 @@ public class CreateWorkActivity extends AppCompatActivity {
     private String workname;
     private String authorname;
     private String workdescription;
+    private EditText editworkname;
+    private EditText editauthorname;
+    private EditText editworkdescription;
 
     private Spinner exspinner;
     private Spinner sectorspinner;
-   // private String name;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_work);
 
-        EditText editworkname = (EditText)findViewById(R.id.editworkname);
-        EditText editauthorname = (EditText)findViewById(R.id.editauthorname);
-        EditText editworkdescription = (EditText)findViewById(R.id.editworkdescription);
+        editworkname = (EditText)findViewById(R.id.editworkname);
+        editauthorname = (EditText)findViewById(R.id.editauthorname);
+        editworkdescription = (EditText)findViewById(R.id.editworkdescription);
+
 
         Intent intent = getIntent();
         adminID = intent.getStringExtra("adminID");
-       // name = intent.getStringExtra("name");
+        name = intent.getStringExtra("name");
 
-        workname = editworkname.getText().toString();
-        authorname = editauthorname.getText().toString();
-        workdescription = editworkdescription.getText().toString();
+
 
         exspinner = (Spinner)findViewById(R.id.exspinner);
         sectorspinner = (Spinner)findViewById(R.id.sectorspinner);
@@ -96,12 +98,37 @@ public class CreateWorkActivity extends AppCompatActivity {
         exspinner.setAdapter(exadapter);
 
 
+        if(sectorArrayList.size() <1){
+            try {
+                GetSectorList getSectorList = new GetSectorList();
+                postsectorData = getSectorList.execute("http://lloasd33.cafe24.com/showsectorlist.php", name).get();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            try {
+                JSONObject jsonObject = new JSONObject(postsectorData);
+                JSONArray jsonArray = jsonObject.getJSONArray(TAG_SECTORJSON);
+                for(int i = 0; i <jsonArray.length(); i++){
+                    sectorArrayList.add(jsonArray.getJSONObject(i).getString("worksector"));
+                }
+
+
+            }catch (JSONException e){ e.printStackTrace();}
+        }
+
+        ArrayAdapter<String> sectoradapter = new ArrayAdapter<>
+                (this, android.R.layout.simple_spinner_dropdown_item,sectorArrayList);
+
+        sectorspinner.setAdapter(sectoradapter);
 
         createWorkNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                String workname = editworkname.getText().toString();
+                String authorname = editauthorname.getText().toString();
+                String workdescription = editworkdescription.getText().toString();
                 String exname = exspinner.getSelectedItem().toString();
                 String sectorname = sectorspinner.getSelectedItem().toString();
 
@@ -196,11 +223,11 @@ public class CreateWorkActivity extends AppCompatActivity {
             String result = null;
             try {
                 String url = strings[0];
-                String id = strings[1];
+                String exname = strings[1];
                 URL URLObject = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) URLObject.openConnection();
 
-                String postparam = "adminID=" + id;
+                String postparam = "name=" + exname;
 
                 con.setRequestMethod("POST");
                 con.setDoInput(true);

@@ -36,11 +36,13 @@ public class Showexlist extends AppCompatActivity {
 
         final String adminID;
 
+
         ListView listview = (ListView) findViewById(R.id.exlist);
         mArrayList = new ArrayList<String>();
 
         Intent intent = getIntent();
         adminID = intent.getStringExtra("adminID");
+
 
 
 

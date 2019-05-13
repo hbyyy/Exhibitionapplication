@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CreateWorkRequest extends StringRequest {
 
-    final static private String URL = "http://lloasd33.cafe24.com/CreateExhibition.php";
+    final static private String URL = "http://lloasd33.cafe24.com/workregister.php";
     private Map<String, String> parameters;
 
     public CreateWorkRequest(String adminID, String workname, String authorname, String workdescription, String name, String worksector ,Response.Listener<String> listener) {

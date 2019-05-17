@@ -35,8 +35,8 @@ public class QRcodeGeneratorActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if( bundle != null ) {
-            adminID = bundle.getString(adminID);
-            workName = bundle.getString(workName);
+            adminID = bundle.getString("adminID");
+            workName = bundle.getString("workName");
         }
 
         //코드 생성

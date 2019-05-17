@@ -16,28 +16,32 @@ import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 public class QRcodeGeneratorActivity extends AppCompatActivity {
-    EditText text;
-    Button gen_btn;
+   // EditText text;
+   // Button gen_btn;
     Button createWorkFinishButton;
     ImageView image;
+    private  String adminID;
     String text2Qr;
-    private String adminID;
+    private String workName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode_generator);
-    /*    text = findViewById(R.id.urlInput);
-        gen_btn = findViewById(R.id.gen_btn);*/
+        //text = findViewById(R.id.urlInput);
+      //  gen_btn = findViewById(R.id.gen_btn);
         image = findViewById(R.id.codeImage);
         createWorkFinishButton = (Button)findViewById(R.id.createWorkFinishButton);
 
         Intent intent = getIntent();
-        adminID = intent.getStringExtra("adminID");
-/*
-        gen_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                text2Qr = text.getText().toString().trim();
+        Bundle bundle = intent.getExtras();
+        if( bundle != null ) {
+            adminID = bundle.getString(adminID);
+            workName = bundle.getString(workName);
+        }
+
+        //코드 생성
+
+                text2Qr = workName.trim();
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try{
                     BitMatrix bitMatrix = multiFormatWriter.encode(text2Qr, BarcodeFormat.QR_CODE,200,200);
@@ -48,9 +52,9 @@ public class QRcodeGeneratorActivity extends AppCompatActivity {
                 catch (WriterException e){
                     e.printStackTrace();
                 }
-            }
-        });
-        */
+
+
+
 
     createWorkFinishButton.setOnClickListener(new View.OnClickListener() {
         @Override

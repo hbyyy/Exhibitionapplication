@@ -154,7 +154,10 @@ public class CreateWorkActivity extends AppCompatActivity {
                 queue.add(createWorkRequest);
 
                 Intent intent = new Intent(CreateWorkActivity.this, QRcodeGeneratorActivity. class);
-                intent.putExtra("adminID", adminID);
+                Bundle bundle = new Bundle();
+                bundle.putString("workName", workname);
+                bundle.putString("adminID", adminID);
+                intent.putExtras(bundle);
                 CreateWorkActivity.this.startActivity(intent);
             }
         });

@@ -157,6 +157,7 @@ public class CreateWorkActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("workName", workname);
                 bundle.putString("adminID", adminID);
+                bundle.putString("name", name);
                 intent.putExtras(bundle);
                 CreateWorkActivity.this.startActivity(intent);
             }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -28,6 +29,7 @@ public class ManagementWorkActiyity extends AppCompatActivity {
         final TextView selectwork = (TextView)findViewById(R.id.selectWork);
         Button createWorkButton = (Button)findViewById(R.id.createWorkButton);
         Button deleteWorkButton = (Button)findViewById(R.id.deleteWorkButton);
+        Button qrcodeButton = (Button)findViewById(R.id.qrcodebutton);
 
         Intent intent = getIntent();
         adminID = intent.getStringExtra("adminID");
@@ -102,6 +104,27 @@ public class ManagementWorkActiyity extends AppCompatActivity {
                     queue.add(deleteworkRequest);
                 }
 
+            }
+        });
+
+        qrcodeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(selectwork.getText().toString().equals("")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ManagementWorkActiyity.this);
+                    builder.setMessage("작품을 선택하세요")
+                            .setNegativeButton("돌아가기", null)
+                            .create()
+                            .show();
+
+                }
+                else{
+                    String workname = selectwork.getText().toString();
+                    Intent intent = new Intent(ManagementWorkActiyity.this, QRcodeGeneratorActivity.class);
+                    intent.putExtra("adminID", adminID);
+                    intent.putExtra("workName", workname);
+                    startActivity(intent);
+                }
             }
         });
     }

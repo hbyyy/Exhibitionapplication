@@ -23,6 +23,7 @@ public class QRcodeGeneratorActivity extends AppCompatActivity {
     private  String adminID;
     String text2Qr;
     private String workName;
+    private  String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class QRcodeGeneratorActivity extends AppCompatActivity {
         if( bundle != null ) {
             adminID = bundle.getString("adminID");
             workName = bundle.getString("workName");
+            name = bundle.getString("name");
         }
 
         //코드 생성
@@ -59,8 +61,9 @@ public class QRcodeGeneratorActivity extends AppCompatActivity {
     createWorkFinishButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(QRcodeGeneratorActivity.this, MainActivity.class);
+            Intent intent = new Intent(QRcodeGeneratorActivity.this, ManagementWorkActiyity.class);
             intent.putExtra("adminID", adminID);
+            intent.putExtra("name", name);
             QRcodeGeneratorActivity.this.startActivity(intent);
         }
     });

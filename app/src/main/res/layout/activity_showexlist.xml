@@ -9,7 +9,7 @@
     <ListView
         android:id="@+id/exlist"
         android:layout_width="wrap_content"
-        android:layout_height="758dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="9"
         android:divider="#000000"

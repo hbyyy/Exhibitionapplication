@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lloasd33cafe24.exhibitionapplication">
+    package="com.lloasd33cafe24.exhibitionapplication"
 
+    >
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -21,7 +24,8 @@
             android:name=".Showexlist"
             android:screenOrientation="portrait"
             android:theme="@style/popupTheme" />
-        <activity android:name=".QRcodeGeneratorActivity" />
+        <activity android:name=".QRcodeGeneratorActivity"/>
+
         <activity android:name=".CreateExhibition2Activity" />
         <activity android:name=".CreateExhibitionActivity" />
         <activity android:name=".LoginActivity">
@@ -34,7 +38,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ManagementWorkActiyity" />
-        <activity android:name=".CreateWorkActivity" />
+        <activity android:name=".CreateWorkActivity"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

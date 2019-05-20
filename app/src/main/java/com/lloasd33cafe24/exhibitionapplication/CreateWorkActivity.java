@@ -44,7 +44,7 @@ public class CreateWorkActivity extends AppCompatActivity {
     private EditText editauthorname;
     private EditText editworkdescription;
 
-    private Spinner exspinner;
+
     private Spinner sectorspinner;
     private String name;
 
@@ -64,14 +64,14 @@ public class CreateWorkActivity extends AppCompatActivity {
 
 
 
-        exspinner = (Spinner)findViewById(R.id.exspinner);
+
         sectorspinner = (Spinner)findViewById(R.id.sectorspinner);
 
-        exArrayList = new ArrayList<>();
+      //  exArrayList = new ArrayList<>();
         sectorArrayList = new ArrayList<>();
 
         Button createWorkNextButton = (Button)findViewById(R.id.createWorkNextButton);
-
+/*
         if(exArrayList.size() <1){
             try {
                 GetExList getExList = new GetExList();
@@ -91,11 +91,10 @@ public class CreateWorkActivity extends AppCompatActivity {
             }catch (JSONException e){ e.printStackTrace();}
 
         }
+*/
 
-        ArrayAdapter<String> exadapter = new ArrayAdapter<>
-                (this, android.R.layout.simple_spinner_dropdown_item,exArrayList);
 
-        exspinner.setAdapter(exadapter);
+
 
 
         if(sectorArrayList.size() <1){
@@ -129,7 +128,7 @@ public class CreateWorkActivity extends AppCompatActivity {
                 String workname = editworkname.getText().toString();
                 String authorname = editauthorname.getText().toString();
                 String workdescription = editworkdescription.getText().toString();
-                String exname = exspinner.getSelectedItem().toString();
+
                 String sectorname = sectorspinner.getSelectedItem().toString();
 
                 Response.Listener<String> listener = new Response.Listener<String>() {
@@ -149,7 +148,7 @@ public class CreateWorkActivity extends AppCompatActivity {
                     }
                 };
 
-                CreateWorkRequest createWorkRequest = new CreateWorkRequest(adminID, workname, authorname, workdescription, exname, sectorname, listener);
+                CreateWorkRequest createWorkRequest = new CreateWorkRequest(adminID, workname, authorname, workdescription, name, sectorname, listener);
                 RequestQueue queue = Volley.newRequestQueue(CreateWorkActivity.this);
                 queue.add(createWorkRequest);
 
@@ -167,7 +166,7 @@ public class CreateWorkActivity extends AppCompatActivity {
 
 
     }
-
+/*
     private class GetExList extends AsyncTask<String, Void, String> {
 
 
@@ -217,7 +216,7 @@ public class CreateWorkActivity extends AppCompatActivity {
 
         }
     }
-
+*/
     private class GetSectorList extends AsyncTask<String, Void, String>{
 
 

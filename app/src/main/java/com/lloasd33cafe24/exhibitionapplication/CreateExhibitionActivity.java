@@ -65,6 +65,7 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
                                 Intent intent = new Intent(CreateExhibitionActivity.this, CreateExhibition2Activity.class);
                                 intent.putExtra("adminID", adminID);
                                 CreateExhibitionActivity.this.startActivity(intent);
+                                finish();
                             }
                             else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(CreateExhibitionActivity.this);

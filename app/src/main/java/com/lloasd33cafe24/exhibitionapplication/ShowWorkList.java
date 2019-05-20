@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -37,6 +38,7 @@ public class ShowWorkList extends AppCompatActivity {
         ListView listview = (ListView)findViewById(R.id.worklist);
         mArrayList = new ArrayList<>();
 
+        Button cancleButton = findViewById(R.id.cancleButton2);
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
         adminID = intent.getStringExtra("adminID");
@@ -72,7 +74,15 @@ public class ShowWorkList extends AppCompatActivity {
                 intent.putExtra("workname", mArrayList.get(position));
                 intent.putExtra("name", name);
                 startActivity(intent);
+                finish();
 
+            }
+        });
+
+        cancleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

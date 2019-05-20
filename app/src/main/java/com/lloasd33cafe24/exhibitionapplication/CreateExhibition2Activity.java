@@ -96,6 +96,7 @@ public class CreateExhibition2Activity extends AppCompatActivity {
                 Intent intent = new Intent(CreateExhibition2Activity.this, MainActivity.class);
                 intent.putExtra("adminID", adminID);
                 CreateExhibition2Activity.this.startActivity(intent);
+                finish();
             }
         });
 

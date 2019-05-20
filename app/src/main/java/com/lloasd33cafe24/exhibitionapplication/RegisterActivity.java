@@ -48,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         .setPositiveButton("확인", null).create().show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 RegisterActivity.this.startActivity(intent);
+                                finish();
                             }
                             else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);

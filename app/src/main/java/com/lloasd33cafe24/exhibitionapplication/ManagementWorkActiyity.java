@@ -123,6 +123,7 @@ public class ManagementWorkActiyity extends AppCompatActivity {
                     Intent intent = new Intent(ManagementWorkActiyity.this, QRcodeGeneratorActivity.class);
                     intent.putExtra("adminID", adminID);
                     intent.putExtra("workName", workname);
+                    intent.putExtra("name", name);
                     startActivity(intent);
                 }
             }

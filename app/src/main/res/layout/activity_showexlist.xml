@@ -9,18 +9,21 @@
     <ListView
         android:id="@+id/exlist"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="758dp"
         android:layout_gravity="center"
+        android:layout_weight="9"
         android:divider="#000000"
         android:dividerHeight="1dp"
+        android:footerDividersEnabled="true"
         android:scrollbars="vertical" />
 
     <Button
-        android:id="@+id/selectbutton"
+        android:id="@+id/cancleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="6dp"
 
-        android:text="완료" />
+        android:layout_weight="1"
+        android:text="취소" />
 </LinearLayout>

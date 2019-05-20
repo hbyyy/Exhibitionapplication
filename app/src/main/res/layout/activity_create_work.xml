@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreateWorkActivity"
-    android:windowSoftInputMode="adjustPan">
+    android:windowSoftInputMode="adjustPan"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <TextView
         android:id="@+id/textView7"
@@ -68,20 +70,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:windowSoftInputMode="adjustPan"/>
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
-        android:text="작품 위치"
-        android:windowSoftInputMode="adjustPan"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <EditText
         android:id="@+id/editworkname"
         android:layout_width="342dp"
@@ -120,16 +108,15 @@
         android:layout_height="130dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/border"
         android:hint="작품 설명"
         android:inputType="text"
         android:scrollbars="vertical"
         android:singleLine="false"
         android:windowSoftInputMode="adjustPan"
-        app:layout_constraintBottom_toTopOf="@+id/textView17"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -147,46 +134,21 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/exspinner"
-        android:layout_width="130dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="72dp"
-        app:layout_constraintBottom_toTopOf="@+id/createWorkNextButton"
-        app:layout_constraintEnd_toStartOf="@+id/sectorspinner"
-        app:layout_constraintHorizontal_bias="0.153"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Spinner
         android:id="@+id/sectorspinner"
         android:layout_width="130dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginBottom="172dp"
         app:layout_constraintBottom_toTopOf="@+id/createWorkNextButton"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="20dp"
-        android:text="전시 이름"
-        app:layout_constraintBottom_toTopOf="@+id/exspinner"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="324dp"
+        android:layout_marginBottom="8dp"
         android:text="작품 구역"
         app:layout_constraintBottom_toTopOf="@+id/sectorspinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.612"
-        app:layout_constraintStart_toEndOf="@+id/textView13" />
+        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

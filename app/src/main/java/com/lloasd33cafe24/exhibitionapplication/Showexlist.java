@@ -35,6 +35,7 @@ public class Showexlist extends AppCompatActivity {
         setContentView(R.layout.activity_showexlist);
 
         final String adminID;
+        Button cancleButton = findViewById(R.id.cancleButton);
 
 
         ListView listview = (ListView) findViewById(R.id.exlist);
@@ -76,6 +77,14 @@ public class Showexlist extends AppCompatActivity {
                 intent.putExtra("name", mArrayList.get(position));
                 intent.putExtra("adminID", adminID);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        cancleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

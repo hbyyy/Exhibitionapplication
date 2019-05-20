@@ -21,6 +21,7 @@ public class ManagementWorkActiyity extends AppCompatActivity {
     private String workname = null;
     private String name;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +31,13 @@ public class ManagementWorkActiyity extends AppCompatActivity {
         Button createWorkButton = (Button)findViewById(R.id.createWorkButton);
         Button deleteWorkButton = (Button)findViewById(R.id.deleteWorkButton);
         Button qrcodeButton = (Button)findViewById(R.id.qrcodebutton);
-
+        TextView nameText = findViewById(R.id.nameText);
         Intent intent = getIntent();
         adminID = intent.getStringExtra("adminID");
         name = intent.getStringExtra("name");
         workname = intent.getStringExtra("workname");
         selectwork.setText(workname);
+        nameText.setText(name);
 
         selectwork.setOnClickListener(new View.OnClickListener() {
             @Override

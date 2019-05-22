@@ -26,49 +26,52 @@
         app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
         android:text="작품 이름"
         android:windowSoftInputMode="adjustPan"
         app:layout_constraintBottom_toTopOf="@+id/editworkname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.097"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
         android:text="작가 이름"
+        android:windowSoftInputMode="adjustPan"
         app:layout_constraintBottom_toTopOf="@+id/editauthorname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
-        android:windowSoftInputMode="adjustPan"/>
+        app:layout_constraintTop_toBottomOf="@+id/editworkname" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:text="작품 설명"
+        android:windowSoftInputMode="adjustPan"
         app:layout_constraintBottom_toTopOf="@+id/editworkdescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
-        android:windowSoftInputMode="adjustPan"/>
+        app:layout_constraintTop_toBottomOf="@+id/editauthorname" />
 
     <EditText
         android:id="@+id/editworkname"
@@ -76,35 +79,37 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="작품 이름 입력"
         android:inputType="textPersonName"
+        android:windowSoftInputMode="adjustPan"
         app:layout_constraintBottom_toTopOf="@+id/textView15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        android:windowSoftInputMode="adjustPan"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <EditText
         android:id="@+id/editauthorname"
         android:layout_width="342dp"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="작가 이름 입력"
         android:inputType="textPersonName"
+        android:windowSoftInputMode="adjustPan"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        android:windowSoftInputMode="adjustPan"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <EditText
         android:id="@+id/editworkdescription"
-        android:layout_width="369dp"
+        android:layout_width="0dp"
         android:layout_height="130dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -117,7 +122,8 @@
         android:windowSoftInputMode="adjustPan"
         app:layout_constraintBottom_toTopOf="@+id/textView18"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <Button
         android:id="@+id/createWorkNextButton"
@@ -128,6 +134,7 @@
         android:layout_marginBottom="8dp"
         android:text="다음"
         android:windowSoftInputMode="adjustPan"
+        app:layout_constraintTop_toBottomOf="@+id/sectorspinner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.459"
@@ -137,18 +144,25 @@
         android:id="@+id/sectorspinner"
         android:layout_width="130dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="260dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/createWorkNextButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="324dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:text="작품 구역"
         app:layout_constraintBottom_toTopOf="@+id/sectorspinner"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editworkdescription" />
 </android.support.constraint.ConstraintLayout>

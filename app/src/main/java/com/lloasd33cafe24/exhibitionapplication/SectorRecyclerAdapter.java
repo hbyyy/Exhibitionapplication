@@ -12,11 +12,15 @@ import java.util.ArrayList;
 public class SectorRecyclerAdapter extends RecyclerView.Adapter<SectorRecyclerAdapter.ItemViewHolder> {
     private ArrayList<SectorListItem> sectorListItems = new ArrayList<>();
     private Activity activity;
+    private String adminID;
+    private String name;
     private int selectedPosition = -1;
 
-    public SectorRecyclerAdapter(Activity activity, ArrayList<SectorListItem> datalist){
+    public SectorRecyclerAdapter(Activity activity, ArrayList<SectorListItem> datalist, String adminID, String name){
         this.activity = activity;
         sectorListItems = datalist;
+        this.adminID = adminID;
+        this.name = name;
     }
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -55,12 +59,12 @@ public class SectorRecyclerAdapter extends RecyclerView.Adapter<SectorRecyclerAd
         void onBind(SectorListItem sectorListItem, int position){
 
             this.data = sectorListItems;
-            textView1.setText(sectorListItem.getSectorname());
+            textView1.setText("전시 구역 : " + sectorListItem.getSectorname());
             Integer temp = sectorListItem.getNumberofex();
             String temp2 = temp.toString();
-            textView2.setText(temp2);
-
+            textView2.setText("작품 갯수 : " + temp2);
             itemView.setOnClickListener(this);
+
 
         }
 

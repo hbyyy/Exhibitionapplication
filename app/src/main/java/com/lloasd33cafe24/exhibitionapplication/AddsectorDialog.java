@@ -57,7 +57,7 @@ public class AddsectorDialog extends AppCompatDialogFragment {
         }
     }
 
-    public interface AddsectorDialogListener{
-        void applyTexts(String sectorname, int number);
-    }
+  public interface AddsectorDialogListener{
+    void applyTexts(String sectorname, int number);
+}
 }

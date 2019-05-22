@@ -1,5 +1,6 @@
 package com.lloasd33cafe24.exhibitionapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -27,24 +29,30 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
     private ArrayList<SectorListItem> sectorListData = new ArrayList<SectorListItem>();
     private SectorRecyclerAdapter adapter;
     private RecyclerView sectorlist;
+    private InputMethodManager imm;
+    private String name;        // 수정 필요!!
+    private EditText exhibitionText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createexhibition);
 
+
+        Intent intent = getIntent();
+        final String adminID = intent.getStringExtra("adminID");
         final Button createExhibitionNext = (Button)findViewById(R.id.createExhibitionNext);
         final TextView addsector = (TextView) findViewById(R.id.addsector);
-        final EditText exhibitionText = (EditText)findViewById(R.id.exhibitionText);
+        exhibitionText = (EditText)findViewById(R.id.exhibitionText);
+        imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE) ;
 
-        adapter = new SectorRecyclerAdapter(this, sectorListData);
+        adapter = new SectorRecyclerAdapter(this, sectorListData, adminID, name);       // 수정 필요!!
         sectorlist = (RecyclerView)findViewById(R.id.secterListRecyclerView);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         sectorlist.setLayoutManager(mLayoutManager);
         sectorlist.setAdapter(adapter);
 
-        Intent intent = getIntent();
-        final String adminID = intent.getStringExtra("adminID");
+
 
 
 
@@ -90,7 +98,7 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
             @Override
             public void onClick(View v) {
                 openDialog();
-                adapter.notifyDataSetChanged();
+
             }
         });
     }
@@ -98,6 +106,8 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
     public void openDialog(){
         AddsectorDialog addsectorDialog = new AddsectorDialog();
         addsectorDialog.show(getSupportFragmentManager(), "addsector dialog");
+
+
     }
 
     @Override
@@ -106,9 +116,16 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
         secItem.setSectorname(sectorname);
         secItem.setNumberofex(number);
         sectorListData.add(secItem);
+        adapter.notifyDataSetChanged();
+        exhibitionText.clearFocus();
+       // hideKeyboard();
 
 
 
 
+    }
+
+    private void hideKeyboard(){
+        imm.hideSoftInputFromWindow(exhibitionText.getWindowToken(), 0);
     }
 }

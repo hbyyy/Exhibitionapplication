@@ -10,52 +10,57 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="164dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="내 전시 프로젝트"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.251"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="68dp"
+        android:hint='"사용자 아이디" 환영합니다'
+        app:layout_constraintBottom_toTopOf="@id/selectEx"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintHorizontal_bias="0.237"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@id/textView2" />
 
     <Button
         android:id="@+id/createExbutton"
         android:layout_width="289dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="344dp"
+
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
         android:text="새 프로젝트 생성"
+        app:layout_constraintBottom_toTopOf="@+id/manageExbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+        app:layout_constraintTop_toBottomOf="@+id/selectEx"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/manageExbutton"
         android:layout_width="289dp"
         android:layout_height="49dp"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:text="선택한 프로젝트 관리"
+        app:layout_constraintBottom_toTopOf="@+id/deleteExbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createExbutton" />
@@ -64,10 +69,12 @@
         android:id="@+id/deleteExbutton"
         android:layout_width="289dp"
         android:layout_height="49dp"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginBottom="2dp"
         android:text="선택한 프로젝트 삭제"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/manageExbutton" />
@@ -77,15 +84,15 @@
         android:layout_width="257dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="75dp"
         android:clickable="true"
         android:hint="전시를 선택하세요"
         app:layout_constraintBottom_toTopOf="@+id/createExbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+        app:layout_constraintVertical_chainStyle="packed" />
 
 </android.support.constraint.ConstraintLayout>

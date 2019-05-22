@@ -26,8 +26,10 @@
             android:theme="@style/popupTheme" />
         <activity android:name=".QRcodeGeneratorActivity"/>
 
-        <activity android:name=".CreateExhibition2Activity" />
-        <activity android:name=".CreateExhibitionActivity" />
+        <activity android:name=".CreateExhibition2Activity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".CreateExhibitionActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class QRcodeGeneratorActivity extends AppCompatActivity {
    // EditText text;
@@ -71,7 +72,12 @@ public class QRcodeGeneratorActivity extends AppCompatActivity {
                 //코드 생성
 
                 text2Qr = workName.trim();
-                MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+        try {
+            text2Qr = new String(text2Qr.getBytes("UTF-8"), "ISO-8859-1");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try{
                     BitMatrix bitMatrix = multiFormatWriter.encode(text2Qr, BarcodeFormat.QR_CODE,200,200);
                     BarcodeEncoder barcodeEncoder = new BarcodeEncoder();

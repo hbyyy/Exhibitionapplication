@@ -1,5 +1,6 @@
 package com.lloasd33cafe24.exhibitionapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class ManagementWorkActiyity extends AppCompatActivity {
     private String adminID;
     private String workname = null;
     private String name;
+    public static Activity _Management_Activity;
 
 
     @Override
@@ -38,6 +40,7 @@ public class ManagementWorkActiyity extends AppCompatActivity {
         workname = intent.getStringExtra("workname");
         selectwork.setText(workname);
         nameText.setText(name);
+        _Management_Activity = ManagementWorkActiyity.this;
 
         selectwork.setOnClickListener(new View.OnClickListener() {
             @Override

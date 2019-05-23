@@ -77,6 +77,8 @@ public class Showexlist extends AppCompatActivity {
                 intent.putExtra("name", mArrayList.get(position));
                 intent.putExtra("adminID", adminID);
                 startActivity(intent);
+                MainActivity ma = (MainActivity)MainActivity._Main_Activity;
+                ma.finish();
                 finish();
             }
         });

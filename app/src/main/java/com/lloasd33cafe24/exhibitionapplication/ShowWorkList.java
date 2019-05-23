@@ -74,7 +74,10 @@ public class ShowWorkList extends AppCompatActivity {
                 intent.putExtra("workname", mArrayList.get(position));
                 intent.putExtra("name", name);
                 startActivity(intent);
+                ManagementWorkActiyity ma = (ManagementWorkActiyity) ManagementWorkActiyity._Management_Activity;
+                ma.finish();
                 finish();
+
 
             }
         });

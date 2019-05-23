@@ -1,5 +1,6 @@
 package com.lloasd33cafe24.exhibitionapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String adminID;
     private String selectex = null;
+    public static Activity _Main_Activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView selectEx = (TextView)findViewById(R.id.selectEx);
         final Button deleteExbutton = (Button)findViewById(R.id.deleteExbutton);
         final Button manageExbutton = (Button)findViewById(R.id.manageExbutton);
+        _Main_Activity = MainActivity.this;
 
         Intent intent = getIntent();
         adminID = intent.getStringExtra("adminID");
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent showlistintent = new Intent(MainActivity.this, Showexlist.class);
                 showlistintent.putExtra("adminID", adminID);
                 MainActivity.this.startActivity(showlistintent);
+
             }
         });
 

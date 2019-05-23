@@ -2,6 +2,7 @@ package com.lloasd33cafe24.exhibitionapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,16 +22,23 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class CreateExhibitionActivity extends AppCompatActivity implements AddsectorDialog.AddsectorDialogListener {
 
-    private int nDatcnt = 0;
+
     private ArrayList<SectorListItem> sectorListData = new ArrayList<SectorListItem>();
     private SectorRecyclerAdapter adapter;
     private RecyclerView sectorlist;
-    private InputMethodManager imm;
-    private String name;        // 수정 필요!!
+    private String name;
+    private String adminID;
     private EditText exhibitionText;
 
     @Override
@@ -40,27 +48,36 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
 
 
         Intent intent = getIntent();
-        final String adminID = intent.getStringExtra("adminID");
+        adminID = intent.getStringExtra("adminID");
         final Button createExhibitionNext = (Button)findViewById(R.id.createExhibitionNext);
         final TextView addsector = (TextView) findViewById(R.id.addsector);
+        final Button checkDuplicationButton = findViewById(R.id.CheckDuplication);
+        final TextView textViewSector = findViewById(R.id.textViewsector);
         exhibitionText = (EditText)findViewById(R.id.exhibitionText);
-        imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE) ;
 
-        adapter = new SectorRecyclerAdapter(this, sectorListData, adminID, name);       // 수정 필요!!
+
+        adapter = new SectorRecyclerAdapter(this, sectorListData, adminID);
         sectorlist = (RecyclerView)findViewById(R.id.secterListRecyclerView);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         sectorlist.setLayoutManager(mLayoutManager);
         sectorlist.setAdapter(adapter);
 
 
+        checkDuplicationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textViewSector.setVisibility(View.VISIBLE);
+                sectorlist.setVisibility(View.VISIBLE);
+                addsector.setVisibility(View.VISIBLE);
+                createExhibitionNext.setVisibility(View.VISIBLE);
+                name = exhibitionText.getText().toString();
 
-
-
+            }
+        });
 
         createExhibitionNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = exhibitionText.getText().toString();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -105,6 +122,10 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
 
     public void openDialog(){
         AddsectorDialog addsectorDialog = new AddsectorDialog();
+        Bundle bundle = new Bundle();
+        bundle.putString("adminID", adminID);
+        bundle.putString("name", name);
+        addsectorDialog.setArguments(bundle);
         addsectorDialog.show(getSupportFragmentManager(), "addsector dialog");
 
 
@@ -112,20 +133,75 @@ public class CreateExhibitionActivity extends AppCompatActivity implements Addse
 
     @Override
     public void applyTexts(String sectorname, int number) {
+        String postdata = null;
         SectorListItem secItem = new SectorListItem();
         secItem.setSectorname(sectorname);
         secItem.setNumberofex(number);
         sectorListData.add(secItem);
         adapter.notifyDataSetChanged();
         exhibitionText.clearFocus();
-       // hideKeyboard();
 
-
+        SetSectorData setSectorData = new SetSectorData();
+        try {
+            postdata = setSectorData.execute("http://lloasd33.cafe24.com/sectoradd.php", adminID, name, secItem.getSectorname(), String.valueOf(secItem.getNumberofex())).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
 
     }
 
-    private void hideKeyboard(){
-        imm.hideSoftInputFromWindow(exhibitionText.getWindowToken(), 0);
+    private class SetSectorData extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String result = null;
+            try {
+                String url = strings[0];
+                String adminID = strings[1];
+                String name = strings[2];
+                String worksector = strings[3];
+                String numberofwork = strings[4];
+                URL URLObject = new URL(url);
+                HttpURLConnection con = (HttpURLConnection) URLObject.openConnection();
+
+                String postparam = "adminID=" + adminID + "&name=" + name + "&worksector=" + worksector + "&numberofwork=" + numberofwork;
+
+                con.setRequestMethod("POST");
+                con.setDoInput(true);
+                con.setDoOutput(true);
+                con.connect();
+
+                OutputStream outputStream = con.getOutputStream();
+                outputStream.write(postparam.getBytes("UTF-8"));
+                outputStream.flush();
+                outputStream.close();
+
+                InputStream inputStream = con.getInputStream();
+
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                StringBuilder sb = new StringBuilder();
+                String line;
+
+                while ((line = bufferedReader.readLine()) != null) {
+                    sb.append(line);
+                }
+
+                bufferedReader.close();
+
+                result =  sb.toString();
+                return result;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return  null;
+            }
+
+        }
     }
+
+
 }

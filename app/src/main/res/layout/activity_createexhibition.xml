@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textViewsector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -51,6 +51,7 @@
         android:text="전시장 구역 리스트"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/secterListRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.161"
@@ -63,13 +64,12 @@
         android:layout_width="307dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
         android:ems="10"
         android:hint="전시명을 입력해주세요"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewsector"
+        app:layout_constraintEnd_toStartOf="@+id/CheckDuplication"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -82,10 +82,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="다음"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
 
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addsector" />
 
@@ -98,6 +99,7 @@
         android:layout_marginEnd="8dp"
         android:text="추가"
         android:textSize="18sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/createExhibitionNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.795"
@@ -113,10 +115,23 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:scrollbars="vertical"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/addsector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textViewsector"
         tools:listitem="@layout/sectorlist_item" />
+
+    <Button
+        android:id="@+id/CheckDuplication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="확인"
+        app:layout_constraintBottom_toTopOf="@+id/textViewsector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/exhibitionText"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 </android.support.constraint.ConstraintLayout>

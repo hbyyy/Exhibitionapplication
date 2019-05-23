@@ -13,14 +13,14 @@ public class SectorRecyclerAdapter extends RecyclerView.Adapter<SectorRecyclerAd
     private ArrayList<SectorListItem> sectorListItems = new ArrayList<>();
     private Activity activity;
     private String adminID;
-    private String name;
+
     private int selectedPosition = -1;
 
-    public SectorRecyclerAdapter(Activity activity, ArrayList<SectorListItem> datalist, String adminID, String name){
+    public SectorRecyclerAdapter(Activity activity, ArrayList<SectorListItem> datalist, String adminID){
         this.activity = activity;
         sectorListItems = datalist;
         this.adminID = adminID;
-        this.name = name;
+
     }
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

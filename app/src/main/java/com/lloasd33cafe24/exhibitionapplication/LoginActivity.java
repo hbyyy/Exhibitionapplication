@@ -16,6 +16,7 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private BackClickFinishHandler backClickFinishHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordText = (EditText)findViewById(R.id.passwordText);
         final Button registerButton = (Button)findViewById(R.id.registerButton);
         final Button loginButton = (Button)findViewById(R.id.loginButton);
+        backClickFinishHandler = new BackClickFinishHandler(this);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +59,8 @@ public class LoginActivity extends AppCompatActivity {
                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                intent.putExtra("adminID", adminID);
                                intent.putExtra("adminEmail", adminEmail);
+                               idText.setText(null);
+                               passwordText.setText(null);
                                LoginActivity.this.startActivity(intent);
 
                            }
@@ -81,6 +85,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        backClickFinishHandler.onBackPressed();
+    }
 }

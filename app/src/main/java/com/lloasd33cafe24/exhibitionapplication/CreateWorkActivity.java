@@ -159,6 +159,7 @@ public class CreateWorkActivity extends AppCompatActivity {
                 bundle.putString("name", name);
                 intent.putExtras(bundle);
                 CreateWorkActivity.this.startActivity(intent);
+                finish();
             }
         });
 

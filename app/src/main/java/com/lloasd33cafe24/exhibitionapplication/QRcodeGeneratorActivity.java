@@ -95,6 +95,8 @@ public class QRcodeGeneratorActivity extends AppCompatActivity {
             Intent intent = new Intent(QRcodeGeneratorActivity.this, ManagementWorkActiyity.class);
             intent.putExtra("adminID", adminID);
             intent.putExtra("name", name);
+            ManagementWorkActiyity ma = (ManagementWorkActiyity) ManagementWorkActiyity._Management_Activity;
+            ma.finish();
             QRcodeGeneratorActivity.this.startActivity(intent);
             finish();
              }
